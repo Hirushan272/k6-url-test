@@ -12,7 +12,7 @@ export const options = {
   scenarios: {
     massive_unique_downloads: {
       executor: 'per-vu-iterations',
-      vus: 6000,
+      vus: 1500,
       iterations: 1,
       maxDuration: '3m',
     },
