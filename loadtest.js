@@ -39,7 +39,7 @@ export default function () {
 
   check(res, {
     'Status is 200': (r) => r.status === 200,
-    'Downloaded ≥200KB': (r) => r.body && r.body.length >= 0.3 * 1024,
+    'Downloaded ≥0.3KB': (r) => r.body && r.body.length >= 0.3 * 1024,
   });
 
   sleep(0.1);
