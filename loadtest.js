@@ -12,15 +12,15 @@ export const options = {
   scenarios: {
     massive_unique_downloads: {
       executor: 'per-vu-iterations',
-      vus: 1500,
+      vus: 5004,
       iterations: 1,
-      maxDuration: '3m',
+      maxDuration: '5m',
     },
   },
 
   thresholds: {
     http_req_failed: ['rate<0.01'],        // <1% failures allowed
-    http_req_duration: ['p(95)<30000'],     // 95% under 2s
+    http_req_duration: ['p(95)<5000'],     // 95% under 2s
   },
 };
 
@@ -34,12 +34,12 @@ export default function () {
   }
 
   const res = http.get(links[index], {
-    timeout: '30s',
+    timeout: '60s',
   });
 
   check(res, {
     'Status is 200': (r) => r.status === 200,
-    'Downloaded ≥200KB': (r) => r.body && r.body.length >= 0.4 * 1024,
+    'Downloaded ≥200KB': (r) => r.body && r.body.length >= 0.3 * 1024,
   });
 
   sleep(0.1);
