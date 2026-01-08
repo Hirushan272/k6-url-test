@@ -4,7 +4,7 @@ import { SharedArray } from 'k6/data';
 
 /* Load links only once (important for performance) */
 const links = new SharedArray('links', function () {
-  return JSON.parse(open('./links.json'));
+  return JSON.parse(open('./crowdlight_links.json'));
 });
 
 /* ===== TEST CONFIG ===== */
